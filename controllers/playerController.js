@@ -11,7 +11,7 @@ var STATE = { play: 0, pause: 1, stop: 2 };
 var playState = STATE.stop;
 
 exports.index = function(req, res) {
-	var musicDir = '/home/deb/Music';
+	var musicDir = 'YOUR_MUSIC_DIR';
 	return {
 		files: files.getFilesRecursive(musicDir)
 	}
