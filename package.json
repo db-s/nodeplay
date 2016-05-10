@@ -1,0 +1,16 @@
+{
+  "name": "nodeplay",
+  "version": "1.0.0",
+  "description": "Sample Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Deb",
+  "license": "ISC",
+  "dependencies": {
+    "speaker": "0.2.x",
+    "lame": "1.2.x"
+  }
+}

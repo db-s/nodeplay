@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}Start{% endblock %}
+
+{% block content %}
+<a href="/">Back to home</a>
+<br><br>
+<form action="/upload" method="post">
+  <p><input name="imageTitle" placeholder="Enter image title here" size="40" /></p>
+  <p><input type="file" name="imageUpload" multiple="multiple" /></p>
+  <p><input type="submit" value="Submit" /></p>
+</form>
+{% endblock %}

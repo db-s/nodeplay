@@ -1,0 +1,49 @@
+{% extends '../layout.html' %}
+
+{% block title %}Player{% endblock %}
+
+<style type="text/css">
+.fa { color: darkgoldenrod; }
+</style>
+
+{% block content %}
+
+<ol>
+	{% for file in files %}
+		<li>
+			<p class="mediafile">{{ file }}</p>
+			<div class="playbuttons">
+				<a class="play active" href="#"><i class="fa fa-play"></i></a>
+				<a class="pause" href="#"><i class="fa fa-pause"></i></a>
+				<a class="resume" href="#"><i class="fa fa-stop"></i></a>
+			</div>
+		</li>
+	{% endfor %}
+</ol>
+
+<script type="text/javascript">
+
+	$(".playbuttons > a").on("click", function(e) {
+		e.preventDefault();
+		var states = $(this).attr("class").split(" ");
+		var data = {};
+		data.mediapath = $(this).parents().eq(1).find("p.mediafile").html();
+		$.each(states, function(i, state) {
+			if (state === "play" || state === "pause" || state === "resume" || state === "stop") {
+				$.ajax({
+					type: 'POST',
+					data: JSON.stringify(data),
+					contentType: 'application/json',
+					url: 'player/'+state+'?path='+data.mediapath,
+					success: function(data) {
+						console.log('success');
+						console.log(JSON.stringify(data));
+					}
+				});
+			}
+		});
+	});
+
+</script>
+
+{% endblock %}

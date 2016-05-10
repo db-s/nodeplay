@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+  {% parent %}
+  <!-- <link rel="stylesheet" href="custom.css"> -->
+{% endblock %}
+
+{% block content %}
+  <p>{{ hello }}</p>
+  <p><a href="/start">Go to upload page</a>
+  <p>This is just an awesome page.</p>
+{% endblock %}
